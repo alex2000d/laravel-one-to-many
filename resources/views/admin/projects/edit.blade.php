@@ -39,6 +39,18 @@
                         @enderror
                     </div>
                     <div class="col-6">
+                        <label for="" class="ccontrol-label">seleziona tipologia</label>
+                        <select type="file" class="form-control" name="type_id">
+                            <option value="">seleziona tipologia</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}" @selected($type->id == old('type_id', $project->type ? $project->type->id : ''))>{{ $type->name }}</option>
+                            @endforeach
+                        </select> 
+                        @error ('type_id')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    <div class="col-6">
                         <label for="" class="ccontrol-label">nome</label>
                         <input type="text" class="form-control" name="name" placeholder="nome" value="{{old('name', $project->name)}}">
                         @error ('name')

@@ -33,13 +33,16 @@
                         @enderror
                     </div>
                     <div class="col-6">
-                        <label for="" class="ccontrol-label">seleziona categoria</label>
-                        <select type="file" class="form-control" name="type" value="{{old('type')}}">
-                            <option value="">seleziona categoria</option>
+                        <label for="" class="ccontrol-label">seleziona tipologia</label>
+                        <select type="file" class="form-control" name="type_id">
+                            <option value="">seleziona tipologia</option>
                             @foreach ($types as $type)
-                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                <option value="{{ $type->id }}" @selected($type->id == old('type_id'))>{{ $type->name }}</option>
                             @endforeach
                         </select> 
+                        @error ('type_id')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
                     </div>
                     <div class="col-6">
                         <label for="" class="ccontrol-label">nome</label>

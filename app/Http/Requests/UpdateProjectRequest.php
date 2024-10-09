@@ -30,6 +30,7 @@ class UpdateProjectRequest extends FormRequest
             'surname' => 'required|max:255',
             'github' => 'required|max:255',
             'image' => 'nullable|image|max:4084',
+             'type_id' => 'nullable|exists:types,id',
 
         ];
        
@@ -50,6 +51,7 @@ class UpdateProjectRequest extends FormRequest
              'surname.max' => 'il link github deve essere lungo al massimo 255 caratteri',
              'image.image'=> 'il file deve essere un immagine',
              'image.max'=> 'immagine deve essere grande al massimo 4084 kb',
+             'type_id.exists' => 'la tipologia selezionata non esiste',
          ];
     }
 }

@@ -17,13 +17,14 @@ class Project extends Model
         'surname',
         'github',
         'image',
+        'type_id',
     ];
 
    public static function generateSlug($name_project){
     return Str::slug($name_project, '-');
    }
 
-   public static function type(){
-    return $this->belongsTo(type::class);
+   public function type(){
+    return $this->belongsTo(Type::class);
 }
 }
