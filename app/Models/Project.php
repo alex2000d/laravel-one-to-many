@@ -22,4 +22,8 @@ class Project extends Model
    public static function generateSlug($name_project){
     return Str::slug($name_project, '-');
    }
+
+   public static function type(){
+    return $this->belongsTo(type::class);
+}
 }

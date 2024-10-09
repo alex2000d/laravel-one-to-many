@@ -33,6 +33,15 @@
                         @enderror
                     </div>
                     <div class="col-6">
+                        <label for="" class="ccontrol-label">seleziona categoria</label>
+                        <select type="file" class="form-control" name="type" value="{{old('type')}}">
+                            <option value="">seleziona categoria</option>
+                            @foreach ($types as $type)
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
+                        </select> 
+                    </div>
+                    <div class="col-6">
                         <label for="" class="ccontrol-label">nome</label>
                         <input type="text" class="form-control" name="name" placeholder="nome" value="{{old('name')}}">
                         @error ('name')
